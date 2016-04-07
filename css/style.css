@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+
+body { margin:0; padding:0; font-size:12px; font-family:"微软雅黑";}
+ol,ul,li,dl,dt,dd,form,p,h1,h2,h3,h4,h5,img{ margin:0px; padding:0px; border:0px;}
+ol,ul,li{ list-style:none; padding:0; margin:0;}
+a{text-decoration:none; border:none; margin:0; padding:0; color:#333;}
+img{border:none;}
+em{font-style:normal; font-weight:normal;}
+.clear{clear:both;}
+.fl{ float:left}
+.fr{ float:right;}
+textarea{ outline:0; resize:none; _border:0; margin:0; padding:0;}
+input{ margin:0; padding:0; border:none;}
+table{border:1px solod #ccc;}
+td{border:1px solod #ccc;}
+.last{ margin-right:0;}
+
+.header{ width:100%; background:url(../images/index1_01.png); height:104px; position:absolute; left:0px; top:0px;}
+.head{ width:1000px; margin:0 auto;}
+.logo{ margin-top:16px;}
+
+.nav{ margin-top:40px;margin-right:20px;}
+.nav .smenu li{ width:95px; float:left; font-size:16px; text-align:center;}
+.nav .smenu li a{ color:#fff;}
+
+.banner{ width:100%;}
+.banner img{ width:100%;}
+
+.pro{ width:1000px; margin:50px auto 0;}
+.pro_t{ line-height:40px; border-bottom:1px solid #d9d9d9;}
+.pro_t span{ float:right; margin-top:19px; margin-right:6px;}
+.pro_t font{ float:left; font-size:16px; color:#4d7fa7; border-bottom:1px solid #e60012; margin-bottom:-1px;}
+.pro_t em{ font-size:12px; color:#afb0b0; font-family:Arial, Helvetica, sans-serif;}
+
+.pro .pro_ul{ margin-top:34px;}
+.pro .pro_ul li{ width:310px; background:#e6e6e6; text-align:center; line-height:30px; padding-bottom:16px; float:left; margin-right:24px;}
+.pro .pro_ul .last{ margin-right:0;}
+.pro .pro_ul li span{ font-size:20px; margin-top:10px; display:block;}
+.pro .pro_ul li font{ font-size:16px;}
+.pro .pro_ul li p{ font-size:12px; line-height:24px;}
+.pro .pro_ul li p a{ color:#d40000;}
+
+.case{ width:1000px; margin:40px auto 0;}
+.case img{ margin-right:21px;}
+
+.footer{ background:#fcfcfc; border-top:1px solid #f4f4f4; margin-top:50px; padding-bottom:40px;}
+.foot{ width:1000px; margin:0 auto; padding-top:42px;}
+.foot dl{ margin-right:110px; float:left;}
+.foot dt{ font-size:18px; color:#424242; line-height:30px;}
+.foot dd{ font-size:14px; line-height:30px;}
+
+.foot_b{ width:1000px; border-top:1px solid #f4f4f4; margin:20px auto 0;}
+.foot_b p{ line-height:30px; color:#757575; margin-top:10px;}
+.foot_b span,.foot_b span a{ color:#bdbdbd; line-height:26px;}
+
+/*ny*/
+.list{ width:100%; background:url(../images/ny01_02.png); height:84px;}
+.list .list_ul{ width:700px; margin:0 auto;}
+.list .list_ull{ width:1000px;margin:0 auto;}
+.list .list_ul li,.list .list_ull li{ background:url(../images/ny_03.png) no-repeat right center; width:200px; font-size:20px; line-height:84px; text-align:center; float:left;}
+.list .list_ul li:hover a,.list .list_ull li:hover a,.list .list_ul li a.cur,.list .list_ull li a.cur{ color:#bf0101;}
+
+.list_b{ width:1000px; margin:0 auto; position:relative;}
+.list_b .list_b_ul{ margin-top:70px; margin-left:60px;}
+.list_b .list_b_ul li{ width:282px; float:left; text-align:center; line-height:60px; font-family:"宋体"; margin-right:20px;}
+.list_b .list_b_ul li img{ display:block; border:1px solid #e7e7e7; margin:0 auto;}
+.list_b .list_b_ul .last{ margin-right:0;}
+
+.list_b .a_left{ position:absolute; left:0px; top:66px; *top:135px;!important}
+.list_b .a_right{ position:absolute; right:0px; top:66px; *top:135px;!important}
+
+/*ny1*/
+.detail{ width:1000px; margin:60px auto 0;}
+
+.detail_l{ width:420px; border:1px solid #ececec;overflow:hidden;}
+.detail_l img{ width:100%; overflow:hidden;}
+
+.detail_r{ width:480px; line-height:30px;}
+.detail_r span{ display:block; font-size:20px; color:#3695d3; margin-bottom:14px;}
+.detail_r font{ font-size:16px; font-family:"宋体"; color:#b8b8b8;}
+.detail_r p{ margin-top:10px;}
+
+.detail_t{ width:1000px; margin:60px auto 0;}
+.detail_tt{ font-size:23px; color:#565555; text-align:center; border-bottom:2px solid #cecece; line-height:48px;}
+.detail_t img{ vertical-align:middle; display:block; margin:40px auto 0;}
+
+.about{ margin-top:15px; font-size:14px; line-height:25px;}
+.news li{ padding:5px 0; border-bottom:1px dotted #ccc;}
+
+
+

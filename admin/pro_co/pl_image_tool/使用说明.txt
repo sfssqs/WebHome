@@ -1,0 +1,109 @@
+如果把“多图上传系统”用到其他系统上
+
+1.创建保存多图的表，把`info_img`表名改为你系统的多图表名
+CREATE TABLE `info_img` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `pl_id` int(10) unsigned NOT NULL default '0',
+  `title` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `img_sl` varchar(50) collate utf8_unicode_ci NOT NULL default '',
+  `px` int(11) unsigned NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+
+2.在你的系统里打开add.php、edit.php 加入调用多图的HTML代码
+add.php代码如下
+  <tr class="tdbg">
+    <td width="120" align="right">多图上传：</td>
+    <td >
+	<IFRAME id="fra" name="fra" src="pl_image_tool/pl_default.php" style="width:670px; height:285px;" frameborder="0" scrolling="auto"></iframe>
+    </td>
+  </tr>
+
+edit.php代码如下
+  <tr class="tdbg">
+    <td width="120" align="right">多图上传：</td>
+    <td >
+    <IFRAME id="fra" name="fra" src="pl_image_tool/pl_default.php?pl_id=<?php echo $id?>" style="width:670px; height:285px;" frameborder="0" scrolling="auto"></iframe>
+    </td>
+  </tr>
+
+3.请更改pl_con.php里的“$pl_table”，设置为你的系统批量上传的表名
+例如info_co 的批量表名 info_img    pro_co 的批量表名 pro_img
+
+4.请更改pl_con.php里的临时session变量“$pl_sesname”，设置为你系统的临时变量，后台中每个批量上传系统session变量必须是唯一
+例如info_co 的批量表名 info_tmp_id    pro_co 的批量表名 pro_tmp_id
+
+5.在addd.php文件里要把临时session变量的值换成相应信息的id
+//添加信息后把批量上传的临时sessionID换成信息的id
+require('pl_image_tool/pl_con.php');
+if (isset($_SESSION[$pl_sesname])&&checknum($_SESSION[$pl_sesname])){
+	$db->execute('update '.$pl_table.' set pl_id='.$id.' where pl_id='.$_SESSION[$pl_sesname].'');
+	$_SESSION[$pl_sesname]='';
+}
+
+6.信息文件夹/make.php里增加删除信息时删除相应的图片和记录
+//下面代码放在记录循环外
+//获取配置文件得到保存多图的表，多图是否需要生成缩略图，生成缩略图的参数数组
+require('pl_image_tool/pl_con.php');
+$pl_table_b=$pl_table;
+require('pl_image_tool/upcon.php');
+$s_pic_b=$s_pic;
+$s_arr_b=$s_arr;
+
+//下面代码放在记录循环里
+//删除多图的图片
+$sql='select `id`,`img_sl` from `'.$pl_table_b.'` where `pl_id`='.$row['id'].'';
+$arr=$db->getrss($sql);
+foreach($arr as $rsb){
+	if($rsb['img_sl']!=''){
+		if($s_pic_b){
+			foreach($s_arr_b as $k=>$v){
+				delfile(getimgj($rsb['img_sl'],$v['s_nam']));
+			}
+		}else{
+			delfile($rsb['img_sl']);
+		}
+	}
+}
+//删除多图的记录
+$db->execute('delete from `'.$pl_table_b.'` where `pl_id`='.$row['id'].'');
+
+7.分类文件夹/make.php里增加删除分类时删除相应的图片和记录
+//下面代码放在记录循环外
+//获取配置文件得到保存多图的表，多图是否需要生成缩略图，生成缩略图的参数数组
+require('../pro_co/pl_image_tool/pl_con.php');
+$pl_table_b=$pl_table;
+require('../pro_co/pl_image_tool/upcon.php');
+$s_pic_b=$s_pic;
+$s_arr_b=$s_arr;
+
+//下面代码放在记录循环里
+//删除多图的图片
+$sql='select `id`,`img_sl` from `'.$pl_table_b.'` where `pl_id`='.$row['id'].'';
+$arr=$db->getrss($sql);
+foreach($arr as $rsb){
+	if($rsb['img_sl']!=''){
+		if($s_pic_b){
+			foreach($s_arr_b as $k=>$v){
+				delfile(getimgj($rsb['img_sl'],$v['s_nam']));
+			}
+		}else{
+			delfile($rsb['img_sl']);
+		}
+	}
+}
+//删除多图的记录
+$db->execute('delete from `'.$pl_table_b.'` where `pl_id`='.$row['id'].'');
+
+
+
+在同一个系统里加入多个“批量上传系统”步骤也是一样的
+只是以下参数不一样而已
+1.“批量上传系统”的文件夹名字“pl_image_tool”
+2.保存多图的表“$pl_table”
+3.临时session变量“$pl_sesname”
+
+
+
+

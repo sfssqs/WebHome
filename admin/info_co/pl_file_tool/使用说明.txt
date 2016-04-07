@@ -1,0 +1,97 @@
+如果把“相关文件系统”用到其他系统上
+
+1.创建保存相关文件的表，把下面`pro_file`表名改为你系统的相关文件表名
+例如info_co 的相关文件表名 info_file    pro_co 的相关信息表名 pro_file
+CREATE TABLE `pro_file` (
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `pl_id` int(11) unsigned NOT NULL default '0',
+  `title` varchar(150) collate utf8_unicode_ci NOT NULL default '',
+  `link_url` varchar(250) collate utf8_unicode_ci NOT NULL,
+  `z_body` text collate utf8_unicode_ci NOT NULL,
+  `img_sl` varchar(250) collate utf8_unicode_ci NOT NULL,
+  `fil_sl` varchar(250) collate utf8_unicode_ci NOT NULL,
+  `ym_tit` varchar(250) collate utf8_unicode_ci NOT NULL,
+  `ym_key` varchar(250) collate utf8_unicode_ci NOT NULL,
+  `ym_des` varchar(250) collate utf8_unicode_ci NOT NULL,
+  `read_num` int(11) unsigned NOT NULL,
+  `px` int(11) unsigned NOT NULL default '0',
+  `ip` varchar(50) collate utf8_unicode_ci NOT NULL,
+  `wtime` int(11) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
+
+
+2.在你的系统里打开add.php、edit.php 加入调用多图的HTML代码
+在add.php和edit.php的<head>标签中加入
+<script src="../scripts/jquery.js"></script>
+<SCRIPT language="JavaScript" type="text/JavaScript">
+function tanchuchuang(url,width,height) {
+	tit='';
+	var winWinth = $(window).width(), winHeight = $(document).height();
+	$("body").append("<div class='winbj'></div>");
+	$("body").append("<div class='tanChu' style='z-index:100;'><div class='winIframe' ></div></div>");
+	str='<iframe id="fra_add" name="fra_add" src="'+url+'" style="width:'+width+'px; height:'+height+'px;" frameborder="0" scrolling="auto"></iframe>';
+	$(".winIframe").html(str);
+	$(".winbj").css({ width: winWinth, height: winHeight, background: "#000", position: "absolute", left: "0", top: "0" });
+	$(".winbj").fadeTo(0, 0.3);
+	var tanchuLeft = $(window).width() / 2 - width / 2;
+	var tanchuTop = $(window).height() / 2 - height / 2 + $(window).scrollTop();
+	$(".tanChu").css({ width: width, height: height, border: "3px #ccc solid",padding:"0px", left: tanchuLeft, top: tanchuTop, background: "#fff", position: "absolute"});
+	var winIframeHeight = height - 26;
+
+	$(".tanchuCancle").click(function() {
+		$(".winbj").remove();
+		$(".tanChu").remove();
+		$(".winIframe").remove();
+		return false
+	});
+}
+
+function tanchuCancle(){
+	$(".winbj").remove();
+	$(".tanChu").remove();
+	$(".winIframe").remove();
+}
+</SCRIPT>
+
+add.php代码中加入
+  <tr class="tdbg">
+    <td width="120" align="right">相关文件：</td>
+    <td >
+	<iframe id="fra_file" name="fra_file" src="pl_file_tool/file_default.php" style="width:670px; height:285px;" frameborder="0" scrolling="auto"></iframe>
+    </td>
+  </tr>
+
+edit.php代码中加入
+  <tr class="tdbg">
+    <td width="120" align="right">相关文件：</td>
+    <td >
+	<iframe id="fra_file" name="fra_file" src="pl_file_tool/file_default.php?pl_id=<?php echo $id?>" style="width:670px; height:285px;" frameborder="0" scrolling="auto"></iframe>
+    </td>
+  </tr>
+
+3.请更改video_con.php里的“$pl_table”，设置为你的系统相关文件的表名
+例如info_co 的相关文件表名 info_file    pro_co 的相关文件表名 pro_file
+
+4.请更改video_con.php里的临时session变量“$pl_sesname”，设置为你系统的临时变量，后台中每个相关文件系统session变量必须是唯一
+例如info_co 的相关文件临时session变量名 info_file_id    pro_co 的相关文件临时session变量名 pro_file_id
+
+5.在addd.php文件里要把临时session变量的值换成相应信息的id
+//添加信息后把批量上传的临时sessionID换成信息的id
+$id=$db->insert_id();
+require('pl_file_tool/video_con.php');
+if (isset($_SESSION[$pl_sesname])&&checknum($_SESSION[$pl_sesname])){	
+	$db->execute('update `'.$pl_table.'` set pl_id='.$id.' where pl_id='.$_SESSION[$pl_sesname].'');
+	$_SESSION[$pl_sesname]='';
+}
+
+
+在同一个系统里加入多个“相关文件系统”步骤也是一样的
+只是以下参数不一样而已
+1.“相关文件系统”的文件夹名字“pl_file_tool”
+2.保存多图的表“$pl_table”
+3.临时session变量“$pl_sesname”
+
+
+
+

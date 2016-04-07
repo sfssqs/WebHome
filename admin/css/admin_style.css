@@ -1,0 +1,82 @@
+@charset "utf-8";
+/*全局样式*/
+html,BODY{FONT-FAMILY:Arial, Helvetica, sans-serif;FONT-SIZE: 12px;text-decoration: none;background:#ffffff;SCROLLBAR-FACE-COLOR: #65A8E5; SCROLLBAR-HIGHLIGHT-COLOR: #65A8E5;SCROLLBAR-SHADOW-COLOR: #BDD6EE;SCROLLBAR-3DLIGHT-COLOR: #ffffff; SCROLLBAR-ARROW-COLOR: #ffffff; SCROLLBAR-TRACK-COLOR:#BDD6EE; SCROLLBAR-DARKSHADOW-COLOR: #65A8E5;margin:1px 1px 0px 1px;}
+ul,li{ margin:0px; padding:0px; list-style:none;}
+TD{FONT-SIZE: 12px;}
+form{ margin:0px; padding:0px;}
+textarea{font-size:12px;}
+input{font-size:12px;BORDER: #aacbe1 1px solid;padding:0 0 0 2px;margin:0px; height:18px; line-height:20px;}
+Button{FONT-SIZE: 12px;background-color:#3333CC;height:20px; }
+select{font-size:12px;}
+a{TEXT-DECORATION: none;color: #000000;}
+a:hover{COLOR: #195288;text-decoration: underline;}
+img{ border:none;}
+
+/*表格*/
+.border{border: 1px solid #2F78C8; }
+.border_tab{border: 1px solid #2F78C8;border-top:none;}
+/*页面总标题*/
+.topbg{background:#2F78C8;color: #FFFFFF;font-weight:bold;text-align:center;height:18px;}
+.topbg td{ height:20px;}
+/*表格标题*/
+.title{font-weight:bold;}
+.title td{ height:20px;background:url(../images/topBar_bg.gif);}
+/*单元格样式*/
+.tdbg{background:#E5EBF1;height:20px;line-height:20px;}
+.tdbgc{background:#ceebfa;height:20px;line-height:20px;}
+.tdbgo{background:#BFDFFF;height:20px;line-height:20px;}
+.tdbg2{background:#E0EEF5;height:20px;line-height:20px;}
+.tdbg3{background:#D3E7F8;height:20px;line-height:20px;}
+tr.over{background:#BFDFFF;}
+tr.click{background:#ceebfa;}
+/*背景颜色*/
+.bgcolor {background-color: #E1F4EE;}
+/*字体颜色*/
+.blue{color:blue;}
+.red{ color:red;}
+.black{ color:#999999;}
+.hui{ color:#999999;}
+.green{ color:green;}
+/*按钮*/
+.btn { background:url(../images/btn_bg.gif) repeat-x 0 0; text-align:center; border:1px solid #9cc9e0; padding:0px 10px;*padding:0px 4px; color:#077ac7; cursor:pointer; height:21px; line-height:21px; overflow:hidden;}
+/*排序框*/
+.num{BORDER: #aacbe1 1px solid; height:18px; line-height:18px; width:25px; padding:0px 0 0 2px; margin:0px;}
+.numm{BORDER: #aacbe1 1px solid; height:18px; line-height:18px; width:25px; padding:0px 0 0 2px; margin:0px; }
+/*排序提交按钮距离*/
+.p{ padding:8px 0 8px 0; margin:0px;}
+/*设置单选框样式*/
+.radio{	font-size:12px;BORDER:none;padding:0px;margin:0 1px 0 0; height:auto; line-height:normal;}
+/*设置复选框样式*/
+.checkbox{font-size:12px;BORDER:none;padding:0px;margin:0 1px 0 0; height:auto; line-height:normal;}
+/*表格的标签样式*/
+.subnav {border:1px solid #2F78C8;border-bottom:none; padding:1px 1px 0px 1px;}
+.subnav ul{height:24px;padding-left:30px;background:url(../images/topBar_bg.gif) repeat-x; }
+.subnav li{ width:85px;float:left;height:22px;line-height:22px;margin:1px 0 0 10px; padding:0px;display:inline;cursor:pointer; text-align:center; color:#000; font-family:"微软雅黑"; }
+.subnav li.cur{background-color:#E5EBF1;border:1px solid #2F78C8;border-bottom:none; font-weight:bold;}
+/*置顶、推荐、热点、屏蔽 按钮*/
+.icon{ width:16px; height:16px; overflow:hidden; display:block; float:left; margin:0 0 0 2px; background:url(../images/icon.png) no-repeat;}
+a.d{ background-position:0 -16px;}
+a.d:hover{background-position:0 0;}
+a.dn{background-position:0 0;}
+/*a.dn:hover{background-position:0 -16px;}*/
+
+a.t{background-position:-16px -16px;}
+a.t:hover{background-position:-16px 0;}
+a.tn{background-position:-16px 0;}
+/*a.tn:hover{background-position:-16px -16px;}*/
+
+a.h{background-position:-32px -16px;}
+a.h:hover{background-position:-32px 0;}
+a.hn{background-position:-32px 0;}
+/*a.hn:hover{background-position:-32px -16px;}*/
+
+a.b{background-position:-48px -16px;}
+a.b:hover{background-position:-48px 0;}
+a.bn{background-position:-48px 0;}
+/*a.bn:hover{background-position:-48px -16px;}*/
+
+
+.tits{ width:1000px; height:28px; background-color:#f0f8fd;}
+.tits li{ width:85px; height:20px;float:left;margin:0 0 0 10px; padding:8px 0 0 0; display:inline;cursor:pointer; text-align:center; color:#000; font-family:"微软雅黑";}
+.tits li.cur{ background:url(../images/gongs_xinw.jpg); color:#1e7eae;}
+

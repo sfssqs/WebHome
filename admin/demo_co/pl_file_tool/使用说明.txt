@@ -1,0 +1,137 @@
+如果把“相关文件系统”用到其他系统上
+
+1.打开demo_co里的add.php、edit.php 加入调用“相关文件系统”的HTML代码，如果这两个页面本身就有的话，就不用添加代码了
+一、在add.php和edit.php的<head>标签中加入
+<script src="../scripts/jquery.js"></script>
+<SCRIPT language="JavaScript" type="text/JavaScript">
+function tanchuchuang(url,width,height) {
+	tit='';
+	var winWinth = $(window).width(), winHeight = $(document).height();
+	$("body").append("<div class='winbj'></div>");
+	$("body").append("<div class='tanChu' style='z-index:100;'><div class='winIframe' ></div></div>");
+	str='<iframe id="fra_add" name="fra_add" src="'+url+'" style="width:'+width+'px; height:'+height+'px;" frameborder="0" scrolling="auto"></iframe>';
+	$(".winIframe").html(str);
+	$(".winbj").css({ width: winWinth, height: winHeight, background: "#000", position: "absolute", left: "0", top: "0" });
+	$(".winbj").fadeTo(0, 0.3);
+	var tanchuLeft = $(window).width() / 2 - width / 2;
+	var tanchuTop = $(window).height() / 2 - height / 2 + $(window).scrollTop();
+	$(".tanChu").css({ width: width, height: height, border: "3px #ccc solid",padding:"0px", left: tanchuLeft, top: tanchuTop, background: "#fff", position: "absolute"});
+	var winIframeHeight = height - 26;
+
+	$(".tanchuCancle").click(function() {
+		$(".winbj").remove();
+		$(".tanChu").remove();
+		$(".winIframe").remove();
+		return false
+	});
+}
+
+function tanchuCancle(){
+	$(".winbj").remove();
+	$(".tanChu").remove();
+	$(".winIframe").remove();
+}
+</SCRIPT>
+
+二、add.php代码中加入
+  <tr class="tdbg">
+    <td width="120" align="right">相关文件：</td>
+    <td >
+	<iframe id="fra_file" name="fra_file" src="pl_file_tool/file_default.php" style="width:670px; height:285px;" frameborder="0" scrolling="auto"></iframe>
+    </td>
+  </tr>
+
+三、edit.php代码中加入
+  <tr class="tdbg">
+    <td width="120" align="right">相关文件：</td>
+    <td >
+	<iframe id="fra_file" name="fra_file" src="pl_file_tool/file_default.php?pl_id=<?php echo $id?>" style="width:670px; height:285px;" frameborder="0" scrolling="auto"></iframe>
+    </td>
+  </tr>
+
+2.打开pl_file_tool里的pl_con.php，更改$pl_sy_id、$pl_sesname变量值
+例如info_co 的$pl_sy_id变量值为 '2' ，后台所有的相关文件系统的记录是用sy_file表来保存的，$pl_sy_id是用来区分不同的系统
+例如info_co 的$pl_sesname变量值为 'info_file_id' ，$pl_sesname是session变量名，每个相关文件系统的session变量名是唯一
+
+3.打开demo_co里addd.php文件里要把临时session变量的值换成相应信息的id
+require('pl_file_tool/pl_con.php');
+if (isset($_SESSION[$pl_sesname])&&checknum($_SESSION[$pl_sesname])){	
+	$db->execute('update `'.$pl_table.'` set pl_id='.$id.' where sy_id='.$pl_sy_id.' and pl_id='.$_SESSION[$pl_sesname].'');
+	$_SESSION[$pl_sesname]='';
+}
+
+4.demo_co/make.php里增加删除信息时删除相应的文件和记录
+//下面代码放在记录循环外
+//获取配置文件
+require('pl_file_tool/pl_con.php');
+$pl_table_d=$pl_table;
+$pl_sy_id_d=$pl_sy_id;
+require('pl_file_tool/up_image_tool/upcon.php');
+$s_pic_d=$s_pic;
+$s_arr_d=$s_arr;
+
+
+//下面代码放在记录循环里
+//删除相关文件的图片、文件
+$sql='select `id`,`img_sl`,`fil_sl` from `'.$pl_table_d.'` where `sy_id`='.$pl_sy_id_d.' and `pl_id`='.$row['id'].'';
+$arr=$db->getrss($sql);
+foreach($arr as $rsb){
+	if($rsb['img_sl']!=''){
+		if($s_pic_d){
+			foreach($s_arr_d as $k=>$v){
+				delfile(getimgj($rsb['img_sl'],$v['s_nam']));
+			}
+		}else{
+			delfile($rsb['img_sl']);
+		}
+	}
+	if($rsb['fil_sl']!=''){
+		delfile($rsb['fil_sl']);
+	}
+}
+//删除相关文件的记录
+$db->execute('delete from `'.$pl_table_d.'` where `sy_id`='.$pl_sy_id_d.' and `pl_id`='.$row['id'].'');
+
+
+5.demo_lm/make.php里增加删除分类时删除相应的图片和记录
+//下面代码放在记录循环外
+require('../'.$conf['sy']['folder_co'].'/pl_file_tool/pl_con.php');
+$pl_table_d=$pl_table;
+$pl_sy_id_d=$pl_sy_id;
+require('../'.$conf['sy']['folder_co'].'/pl_file_tool/up_image_tool/upcon.php');
+$s_pic_d=$s_pic;
+$s_arr_d=$s_arr;
+
+
+//下面代码放在记录循环里
+//删除相关文件的图片、文件
+$sql='select `id`,`img_sl`,`fil_sl` from `'.$pl_table_d.'` where `sy_id`='.$pl_sy_id_d.' and `pl_id`='.$row['id'].'';
+$arr=$db->getrss($sql);
+foreach($arr as $rsb){
+	if($rsb['img_sl']!=''){
+		if($s_pic_d){
+			foreach($s_arr_d as $k=>$v){
+				delfile(getimgj($rsb['img_sl'],$v['s_nam']));
+			}
+		}else{
+			delfile($rsb['img_sl']);
+		}
+	}
+	if($rsb['fil_sl']!=''){
+		delfile($rsb['fil_sl']);
+	}
+}
+//删除相关文件的记录
+$db->execute('delete from `'.$pl_table_d.'` where `sy_id`='.$pl_sy_id_d.' and `pl_id`='.$row['id'].'');
+
+
+提醒：
+在同一个信息系统里加入多个“相关文件系统”步骤跟上面是一样的
+只是以下参数不一样而已
+1.“相关文件系统”的文件夹名字“pl_file_tool”
+2.pl_file_tool里的pl_con.php的$pl_sy_id
+3.pl_file_tool里的pl_con.php的$pl_sesname
+
+
+
+
