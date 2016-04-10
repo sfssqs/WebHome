@@ -43,6 +43,6 @@
     <div class="clear"></div>
   </div>
   <div class="foot_b">
-    <p>Copyright © 2015, Smartisan Digital Co., Ltd. All Rights Reserved. 深圳市雪锐科技有限公司</p>
+    <p>Copyright © 2015, X.R Technology Co., Ltd. All Rights Reserved. 深圳市雪锐科技有限公司</p>
     <span>版权所有 <a href="" target="_blank">粤ICP备13018742号-1</a></span> </div>
 </div>
