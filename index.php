@@ -16,7 +16,7 @@ $arr=getglrs(1);
 
 <body>
 <?php require"top.php";?>
-<div class="banner" style="position: relative;"><img src="images/index_02.png" border="0" />
+<div class="banner" style="position: relative;"><img src="images/poster_home.jpg" border="0" />
 <div  style="position: absolute;width: 50px;bottom: 0;right: 50%;"><a href="#show"><img src="images/index0_03.png" alt="" /></a></div>
 </div>
 <div class="pro" id="show">

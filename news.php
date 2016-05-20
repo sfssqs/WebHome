@@ -20,7 +20,7 @@ $news->showseo();
 
 <body>
 <?php require"top.php";?>
-<div class="banner" style="position: relative;"><img src="images/index_02.png" border="0" />
+<div class="banner" style="position: relative;"><img src="images/poster_news.jpg" border="0" />
 <div  style="position: absolute;width: 50px;bottom: 0;right: 50%;"><a href="#show"><img src="images/index0_03.png" alt="" /></a></div>
 </div>
 <div id="show" class="list">
