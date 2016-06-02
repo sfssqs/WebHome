@@ -13,7 +13,8 @@
         <div class="clear"></div>
       </ul>
 
-  <div style="float: right;position: absolute;right: 35px;top:15px;"><a style="padding-right: 20px;color: #fff;" href="./">中文</a><a style="color: #fff;" href="en/">English</a></div>
+<!-- delete english switcher -->
+  <!-- <div style="float: right;position: absolute;right: 35px;top:15px;"><a style="padding-right: 20px;color: #fff;" href="./">中文</a><a style="color: #fff;" href="en/">English</a></div> -->
     </div>
     <div class="clear"></div>
   </div>
