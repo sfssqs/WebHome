@@ -47,8 +47,8 @@ $arr=getglrs(1);
 <div class="pro_t"><span></a></span> <font>快捷入口</font> &nbsp;&nbsp;<em>SHORTCUTS</em>
 <!-- add end, xiaxing -->
 </div>
-<a href="about.php"><img src="images/index_14.png" /></a> 
-<a href="news.php"><img src="images/index_15.png" /></a> 
+<a href="product.php"><img src="images/index_14.png" /></a> 
+<a href="http://xrcarlife.com/news_show.php?id=17"><img src="images/index_15.png" /></a> 
 <a href="case.php"><img src="images/index_17.png" /></a> </div>
 <?php require"footer.php"?>
 </body>
