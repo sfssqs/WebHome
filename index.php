@@ -31,14 +31,22 @@ $arr=getglrs(1);
 	?>
     <li   <?php if($a%3==0) echo 'class="last"'?>>
       <div class="li_img"><a href="product_show.php?id=<?php echo $v['id']?>"><img src="<?php echo $v['img_sl']?>" width="308" height="174"  /></a></div>
-      <span><?php echo $v['title']?></span> <font>产品型号： <?php echo $v['pro_can1']?></font>
+      <span><?php echo $v['title']?></span> 
+      <!-- delete product intro and details enter button -->
+      <!--[if IE 6]>
+       <font>产品型号： <?php echo $v['pro_can1']?></font>
       <p><?php echo getstr($v['f_body'],80)?><a href="product_show.php?id=<?php echo $v['id']?>">【更多】</a></p>
+      <![endif]-->
     </li>
     <?php $a++;}?>
     <div class="clear"></div>
   </ul>
 </div>
 <div class="case"> 
+<!-- add a devide line, xiaxing-->
+<div class="pro_t"><span></a></span> <font>快捷入口</font> &nbsp;&nbsp;<em>SHORTCUTS</em>
+<!-- add end, xiaxing -->
+</div>
 <a href="about.php"><img src="images/index_14.png" /></a> 
 <a href="news.php"><img src="images/index_15.png" /></a> 
 <a href="case.php"><img src="images/index_17.png" /></a> </div>
