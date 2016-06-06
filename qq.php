@@ -3,7 +3,7 @@
 	<ul>
 		<!--调用开始-->
 		<li style="border-top:none">
-			<p><span class="icon zixun"></span>销售咨询</p>
+			<p><span class="icon zixun"></span>在线咨询</p>
 			<b>工作日：9:00-17:30</b>
 			<?php $zx = $db -> getRows($db->query("select * from kf_co where lx=5"))?>
 			<?php foreach($zx as $v1){?>
