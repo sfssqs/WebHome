@@ -7,7 +7,7 @@
         <li><a href="index.php">首页</a></li>
         <li><a href="about.php">公司简介</a></li>
         <li><a href="product.php">产品展示</a></li>
-        <li><a href="case.php">应用案例</a></li>
+        <!-- <li><a href="case.php">应用案例</a></li> -->
         <li><a href="news.php">新闻中心</a></li>
         <li><a href="download.php">资料下载</a></li>
         <div class="clear"></div>
