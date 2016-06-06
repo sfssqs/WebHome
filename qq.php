@@ -1,5 +1,5 @@
 <link href="css/qq.css" rel="stylesheet" type="text/css" />
-<div class="qust_contach"> <a href="javascript:void(0);" class="qst_close icon">&nbsp;</a> <br class="clear">
+<div class="qust_contach" style="display:none;"> <a href="javascript:void(0);" class="qst_close icon">&nbsp;</a> <br class="clear">
 	<ul>
 		<!--调用开始-->
 		<li style="border-top:none">
@@ -30,7 +30,7 @@
 		</li>
 	</ul>
 </div>
-<div class="qust_show" style="display:none;"> 
+<div class="qust_show"> 
 	<a href="javascript:void(0);"> <span class="icon server"></span><br/>
 	<span>在</span><br/>
 	<span>线</span><br/>
