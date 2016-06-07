@@ -30,7 +30,7 @@ class UploadFile{
 	 *$overfile是否覆盖相同文件名
 	 *return 上传文件的属性数组--现文件名，文件大小，文件扩展名，文件原名字，错误信息
 	 */
-	public function upLoad($file,$save_folder,$file_name,$allow_types='jpg|gif|png|zip|rar|txt|html|bmp|pdf',$max_size=2000000000,$overfile=false){
+	public function upLoad($file,$save_folder,$file_name,$allow_types='jpg|gif|png|zip|rar|txt|html|bmp|pdf',$max_size=6000000000,$overfile=false){
 		
 		$this->save_folder=$save_folder;
 		$this->sava_path=MO_ROOT.'/'.$save_folder.'/';

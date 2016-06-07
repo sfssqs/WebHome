@@ -6,7 +6,7 @@ $path="upimg";
 $allowext="gif|jpg|jpeg|bmp|png";
 
 //允许上传的文件大小
-$maxsize=200000;
+$maxsize=600000;
 
 //允许上传几张图片，0表示不限制
 $allownum=0;

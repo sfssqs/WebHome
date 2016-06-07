@@ -6,5 +6,5 @@ $path="upinfo";
 $allowext="jpg|gif|png|bmp";
 
 //允许上传的文件格式
-$maxsize=200000;
+$maxsize=600000;
 ?>

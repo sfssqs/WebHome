@@ -6,7 +6,7 @@ $path="upfile";
 $allowext="7z|aiff|asf|avi|bmp|csv|doc|fla|flv|gif|gz|gzip|jpeg|jpg|mid|mov|mp3|mp4|mpc|mpeg|mpg|ods|odt|pdf|png|ppt|pxd|qt|ram|rar|rm|rmi|rmvb|rtf|sdc|sitd|swf|sxc|sxw|tar|tgz|tif|tiff|txt|vsd|wav|wma|wmv|xls|xml|zip";
 
 //允许上传的文件大小
-$maxsize=20000000;
+$maxsize=60000000;
 
 //上传文件提示尺寸
 $s_txt='';

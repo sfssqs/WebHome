@@ -12,7 +12,7 @@ $path="upimg";
 $allowext="gif|jpg|jpeg|bmp|png";
 
 //允许上传的文件大小
-$maxsize=200000;
+$maxsize=600000;
 
 //是否显示图片标题
 $displaytitle=false;

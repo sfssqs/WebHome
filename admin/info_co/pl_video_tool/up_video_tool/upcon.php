@@ -6,7 +6,7 @@ $path="upvideo";
 $allowext="aiff|asf|avi|fla|flv|mid|mov|mp3|mp4|mpc|mpeg|mpg|qt|ram|rm|rmi|rmvb|swf|wav|wma|wmv";
 
 //允许上传的文件大小
-$maxsize=20000000;
+$maxsize=60000000;
 
 //上传文件提示尺寸
 $s_txt='文件最大支持20M';
